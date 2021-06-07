@@ -1,9 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Controller('create-user')
 export class CreateUserController {
-  @Get('/')
-  createUser() {
-    return { message: 'Olá Mundo!' };
+  @Post('/')
+  createUser(@Body() createUser: CreateUserDto) {
+    return createUser;
   }
 }
